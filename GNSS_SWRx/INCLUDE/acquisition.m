@@ -222,7 +222,7 @@ for PRN = settings.acqSatelliteList
                          (samplesPerCode + excludeRangeIndex1);
                          
     elseif excludeRangeIndex2 >= samplesPerCode
-        codePhaseRange = (excludeRangeIndex2 - samplesPerCode) : ...
+        codePhaseRange = (excludeRangeIndex2 - samplesPerCode) + 1 : ...
                          excludeRangeIndex1;
     else
         codePhaseRange = [1:excludeRangeIndex1, ...
@@ -269,7 +269,8 @@ for PRN = settings.acqSatelliteList
         fftFreqBins = (0 : uniqFftPts-1) * settings.samplingFreq/fftNumPts;
         
         %--- Save properties of the detected satellite signal -------------
-        acqResults.carrFreq(PRN)  = fftFreqBins(fftMaxIndex);
+        % acqResults.carrFreq(PRN)  = fftFreqBins(fftMaxIndex);
+        acqResults.carrFreq(PRN)  = frqBins(frequencyBinIndex);
         acqResults.codePhase(PRN) = codePhase;
         %--- flag to remove the PRN from the noise floor calculation
         presentFlag = 1; 

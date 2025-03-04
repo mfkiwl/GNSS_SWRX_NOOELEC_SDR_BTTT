@@ -1,7 +1,7 @@
 close all; clear all;
 
 % logfile name
-logFileName = '..\dataLogs\39_parkside_2p4MHz_GP_pot3';
+logFileName = '..\dataLogs\testCapture';
 
 filenameI = [logFileName '_dataI.dat'];
 filenameQ = [logFileName '_dataQ.dat'];
@@ -9,7 +9,7 @@ fidI = fopen(filenameI, 'w');
 fidQ = fopen(filenameQ, 'w');
 
 centerFrequency = 1575.32e6;
-sampleRate = 2.4e6;
+sampleRate = 1.5e6;
 logTime = 60;
 
 rx = comm.SDRRTLReceiver('0',CenterFrequency = centerFrequency,...
